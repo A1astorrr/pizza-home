@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+  <div>
+
+      <h1 class="text-center text-3xl font-bold max-md:text-xl max-[425px]:text-sm">{{ welcome }}</h1>
+      <p class="text-center text-3xl font-bold max-md:text-xl max-[425px]:text-sm ">{{ about }}</p>
+
+
+      <div class="max-w-[1200px] max-h-[900px] mt-2 overflow-hidden border-sky-100 max-md:max-w-[768px] max-md:max-h-[576px] max-md:ml-[10px] max-md:mr-[10px] max-[425px]:max-w-[425px] max-[425px]:max-h-[318px] ">
+        
+        <div class="w-full h-full border-solid border-[4px] border-orange-500">
+          <img class="w-full h-full " src="{% static 'deps/images/image_1.jpg' %}" alt="изображение 1" />
+          <img class="w-full h-full" src="{% static 'deps/images/image_2.jpg' %}" alt="изображение 2" />
+          <img class="w-full h-full" src="{% static 'deps/images/image_3.jpg' %}" alt="изображение 3" />
+        </div>
+      </div>
+    
+      <script src='{% static 'deps/js/script.js' %}'>
+      </script>
+
+  </div>
+{% endblock %}

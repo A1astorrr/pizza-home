@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru" class='m-0 p-0 box-border'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'deps/css/styles.css' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'deps/favicon/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'deps/favicon/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'deps/favicon/favicon-16x16.png' %}" />
+    <link rel="manifest" href="{% static 'deps/favicon/site.webmanifest' %}" />
+    <title>
+      {% block title %}
+        Pizza House
+      {% endblock %}
+    </title>
+  </head>
+  <body class='font-mono leading-4 flex flex-col min-h-screen'>
+    {% comment %}шапка сайта{% endcomment %}
+    <header class='bg-orange-500 py-3 px-0 p-1 '>
+      {% comment %} fullscreen {% endcomment %}
+
+      <nav class="max-lg:hidden">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+          {% comment %} menu left {% endcomment %}
+          <div class="flex items-center space-x-6">
+            <a href="{% url 'main:index' %}" class="text-lg text-white font-extrabold">Pizza Home</a>
+            <ul class='flex items-center text-black'>
+              <li>
+                <a class='p-0.5-1rem  hover:text-white' href="{% url 'goods:menu' %}">Меню</a>
+              </li>
+              <li>
+                <a class='p-0.5-1rem  hover:text-white' href="{% url 'main:contact' %}">Контакты</a>
+              </li>
+            </ul>
+          </div>
+          {% comment %} menu right {% endcomment %}
+          <div class="flex items-center space-x-4">
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>            
+          </a>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+            </svg>            
+          </a>
+        </div>
+        </div>
+      </nav>
+
+
+        <nav id="mobile-menu" class="lg:hidden fixed left-0 top-0 right-0 bottom-0 items-center justify-center bg-orange-500 hidden">
+          <div class='flex flex-col items-center gap-5 text-black'>
+            <ul class='flex flex-col items-center gap-5 text-black'>
+              <div class="flex">
+                <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>            
+                </a>
+             
+              </div>
+              <li>
+                <a class='p-0.5-1rem  hover:text-white' href="{% url 'main:index' %}">Главная</a>
+              </li>
+              <li>
+                <a class='p-0.5-1rem  hover:text-white' href="{% url 'goods:menu' %}">Меню</a>
+              </li>
+              <li>
+                <a class='p-0.5-1rem  hover:text-white' href="{% url 'main:contact' %}">Контакты</a>
+              </li>
+            </ul>
+            <div class="flex">
+
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                </svg>            
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="flex items-center justify-between lg:hidden">
+          <a href="{% url 'main:index' %}" class="text-lg text-white font-extrabold pl-2">Pizza Home</a>
+          
+          <button id="burger" class="mr-6 group hidden relative h-5 w-[30px] max-lg:block">
+            <span class="absolute bg-white h-[2px] w-full top-0 group-[.active]:translate-y-2 group-[.active]:rotate-45 transition-transform"></span>
+            <span class="absolute bg-white h-[2px] w-full top-1/2 group-[.active]:opacity-0 transition-opacity"></span>
+            <span class="absolute bg-white h-[2px] w-full bottom-0 group-[.active]:-translate-y-[10px] group-[.active]:-rotate-45 transition-transform"></span>
+            </button>
+        </div>
+
+
+        
+
+      {% comment %} {% block switch %}
+      
+        {% endblock %} {% endcomment %}
+    </header>
+    {% comment %}Создаем главный блок всего контента{% endcomment %}
+    <main class='flex flex-[1] py-8 px-4 max-w-screen-xl my-0 mx-auto max-md:py-4 max-[425px]:py-4 max-[425px]:px-2'>
+      {% block content %}
+
+      {% endblock %}
+    </main>
+    {% comment %}нижняя часть страницы{% endcomment %}
+    <footer class='bg-orange-500 text-white text-center w-full px-0 py-4'>
+      <p>2024 Pizza Home. Все права защищены.</p>
+    </footer>
+    <script src='{% static "deps/js/burger.js" %}'></script>
+  </body>
+</html>

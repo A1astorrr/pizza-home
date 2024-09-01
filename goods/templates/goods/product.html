@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="max-w-6xl mx-auto  h-full flex flex-wrap py-6 px-6 xl:px-0 shadow-2xl rounded-[50px] ">
+    <div class=" mb-6 lg:mb-0 lg:w-3/5 hover:scale-110">
+        <!-- Изображение товара -->
+        {% if product.discount %}
+            <span class="font-bold bg-orange-400 p-[1px] text-white mt-auto">Скидка {{ product.discount }} %</span>
+            {% endif %}
+            {% if product.image %}
+            <img class='rounded-xl w-4/5 m-0-auto-1' src="{{ product.image.url}}" alt="{{ product.name }}" />
+            {% else %}
+            {% comment %} если нет изображения {% endcomment %}
+            <img class='rounded-xl w-4/5 m-0-auto-1' src="{% static 'deps/images/not_images.png' %}" alt="Пицца" />
+            {% endif %}
+    </div>
+    <!-- Описание товара -->
+    <div class="w-full lg:w-2/5 lg:p-6">
+        <h3 class="flex m-0 mb-4 text-5xl max-[768px]:text-4xl max-[425px]:text-2xl font-bold text">{{ product.name }}</h3>
+        <p class="flex m-0 mb-4 text-lg text-slate-500 max-[425px]:text-sm">{{ product.description }}</p>
+        <div class="flex justify-between items-center  w-full">
+          {% if product.discount %}
+          <s class=" text-orange-500"><p class="font-bold text-xl text-black mt-auto max-[425px]:text-sm">{{ product.price }} ₽</p></s>
+          <span><p class="font-bold text-lg text-black mt-auto text-center max-[425px]:text-sm">{{product.sell_price}} ₽</p></span>
+          {% else %}
+            <p class="font-bold text-lg text-black mt-auto">{{ product.price }} ₽</p>
+          {% endif %}
+          <button class="p-0.5-1rem text-lg bg-orange-100 text-orange-600 hover:text-white border-none cursor-pointer rounded-md transition-bg  hover:bg-orange-400 max-[425px]:text-sm">В корзину</button>
+        </div>
+    </div>
+</div>
+
+
+     
+      
+{% endblock %}
